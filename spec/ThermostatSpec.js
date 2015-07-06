@@ -43,10 +43,24 @@ describe('Thermostat', function() {
       expect(thermostat.powerSavingMode).toBe(true);
     });
 
-    it('sets maximum temperature to 25', function (){
+    it('sets maximum temperature to 25 when on', function() {
       thermostat.temp = 25;
       thermostat.raise();
       expect(thermostat.temperature()).toBe(25);
+    });
+
+    it('allows maximum temperature above 25 when off', function(){
+      thermostat.temp = 25;
+      thermostat.powerSavingOff();
+      thermostat.raise();
+      expect(thermostat.temperature()).toBe(26);
+    });
+
+    it('raises maximum temperature to 32 when off', function(){
+      thermostat.powerSavingOff();
+      thermostat.temp = 32;
+      thermostat.raise();
+      expect(thermostat.temperature()).toBe(32);
     });
 
   });

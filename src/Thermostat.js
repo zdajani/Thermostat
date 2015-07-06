@@ -1,6 +1,7 @@
 var Thermostat = function(){
   this.temp = 20;
   this.powerSavingMode = true;
+  this.maxtemp = 25;
 };
 
 
@@ -10,10 +11,16 @@ Thermostat.prototype.temperature = function () {
 
 Thermostat.prototype.powerSavingOff = function () {
   this.powerSavingMode = false;
+  this.maxtemp = 32;
+};
+
+Thermostat.prototype.powerSavingOn = function() {
+  this.powerSavingMode = true;
+  this.maxtemp = 25;
 };
 
 Thermostat.prototype.raise = function() {
-  if (this.temp < 25 ) {this.temp++;}
+  if (this.temp < this.maxtemp ) {this.temp++;}
 };
 
 Thermostat.prototype.lower = function () {
