@@ -65,4 +65,13 @@ describe('Thermostat', function() {
 
   });
 
+  describe('temprature reset', function(){
+    it ('resets thermostat to 20', function(){
+      thermostat.temp = 27;
+      thermostat.resetButton();
+      expect(thermostat.temperature()).toBe(20);
+    });
+
+  });
+
 });

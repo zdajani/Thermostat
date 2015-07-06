@@ -26,3 +26,7 @@ Thermostat.prototype.raise = function() {
 Thermostat.prototype.lower = function () {
   if (this.temp > 10) {this.temp--;}
 };
+
+Thermostat.prototype.resetButton = function () {
+  this.temp = 20;
+};
