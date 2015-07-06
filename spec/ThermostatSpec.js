@@ -1,0 +1,1 @@
+describer('Thermostat', function)
