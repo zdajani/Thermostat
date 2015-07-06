@@ -19,7 +19,13 @@ describe('Thermostat', function() {
 
     it('can be lowered', function() {
       thermostat.lower();
-      expect(thermostat.temperature()).toBe(19)
+      expect(thermostat.temperature()).toBe(19);
+    });
+
+    it("can't be lowered beyond 10", function() {
+      thermostat.temp = 10;
+      thermostat.lower();
+      expect(thermostat.temperature()).toBe(10);
     });
 
   });
