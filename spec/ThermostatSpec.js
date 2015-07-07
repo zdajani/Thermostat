@@ -74,4 +74,35 @@ describe('Thermostat', function() {
 
   });
 
+  describe('colour',function(){
+
+    it('is yellow by default', function(){
+      expect(thermostat.colour).toEqual('yellow');
+    });
+
+    it('is green for: temp < 18', function(){
+      thermostat.temp = 18;
+      thermostat.lower();
+      expect(thermostat.colour).toEqual('green');
+    });
+
+    it('is red for: temp > 25', function() {
+      thermostat.temp = 24;
+      thermostat.powerSavingOff();
+      thermostat.raise();
+      expect(thermostat.colour).toEqual('red');
+    });
+
+    it('is yellow after resetting', function(){
+      thermostat.temp = 17;
+      thermostat.selectColour();
+      thermostat.resetButton();
+      expect(thermostat.colour).toEqual('yellow');
+    });
+
+
+  });
+
 });
+
+

@@ -2,6 +2,7 @@ var Thermostat = function(){
   this.temp = 20;
   this.powerSavingMode = true;
   this.maxtemp = 25;
+  this.colour = 'yellow';
 };
 
 
@@ -22,12 +23,27 @@ Thermostat.prototype.powerSavingOn = function () {
 
 Thermostat.prototype.raise = function() {
   if (this.temp < this.maxtemp ) {this.temp++;}
+  this.selectColour();
 };
 
 Thermostat.prototype.lower = function () {
   if (this.temp > 10) {this.temp--;}
+  this.selectColour();
 };
 
 Thermostat.prototype.resetButton = function () {
   this.temp = 20;
+  this.selectColour();
+};
+
+Thermostat.prototype.selectColour = function() {
+  if ( 18 >= this.temp < 25) {
+    this.colour = 'yellow';
+  };
+  if ( this.temp < 18) {
+    this.colour = 'green';
+  };
+  if ( this.temp >= 25) {
+    this.colour = 'red';
+  };
 };
