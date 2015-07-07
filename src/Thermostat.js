@@ -38,12 +38,9 @@ Thermostat.prototype.resetButton = function () {
 
 Thermostat.prototype.selectColour = function() {
   if ( 18 >= this.temp < 25) {
-    this.colour = 'yellow';
-  };
+    this.colour = 'yellow';}
   if ( this.temp < 18) {
-    this.colour = 'green';
-  };
+    this.colour = 'green';}
   if ( this.temp >= 25) {
-    this.colour = 'red';
-  };
+    this.colour = 'red';}
 };
