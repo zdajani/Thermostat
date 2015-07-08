@@ -1,6 +1,7 @@
 function currentTemp() {
   document.getElementById('temp').innerHTML = thermostat.temp + "&#8451";
   document.getElementById('temp').style.color = thermostat.colour;
+  document.getElementById('powerSavingToggle').style.background = thermostat.powerColour;
 }
 
 var thermostat = new Thermostat();
@@ -21,12 +22,11 @@ document.getElementById('resetButton').onclick = function(){
   currentTemp();
 };
 
-document.getElementById('powerSavingOn').onclick = function(){
-  thermostat.powerSavingOn();
+var button = document.getElementById('powerSavingToggle');
+button.onclick = function(){
+  thermostat.powerSavingToggle();
+  thermostat.powerSavingColour();
   currentTemp();
-};
-
-document.getElementById('powerSavingOff').onclick = function(){
-  thermostat.powerSavingOff();
-  currentTemp();
+  if (this.value === 'Power Saving On') { return this.value = 'Power Saving Off';}
+  if (this.value === 'Power Saving Off') { return this.value = 'Power Saving On';}
 };

@@ -1,8 +1,9 @@
 var Thermostat = function(){
   this.temp = 20;
   this.powerSavingMode = true;
+  this.powerColour = 'green';
   this.maxtemp = 25;
-  this.colour = 'yellow';
+  this.colour = 'GoldenRod';
 };
 
 
@@ -21,8 +22,9 @@ Thermostat.prototype.powerSavingOn = function () {
   if (this.temp > 25) {this.temp = 25;}
 };
 
-Thermostat.prototype.powerSavingToggle = function (first_argument) {
-  // body...
+Thermostat.prototype.powerSavingToggle = function () {
+  if (this.powerSavingMode === true) {return this.powerSavingOff();}
+  if (this.powerSavingMode === false) {return this.powerSavingOn();}
 };
 
 Thermostat.prototype.raise = function() {
@@ -42,9 +44,16 @@ Thermostat.prototype.resetButton = function () {
 
 Thermostat.prototype.selectColour = function() {
   if ( 18 >= this.temp < 25) {
-    this.colour = 'yellow';}
+    this.colour = 'GoldenRod';}
   if ( this.temp < 18) {
     this.colour = 'green';}
   if ( this.temp >= 25) {
     this.colour = 'red';}
+};
+
+Thermostat.prototype.powerSavingColour = function() {
+  if (this.powerSavingMode === true) {
+      this.powerColour = 'green';}
+  if (this.powerSavingMode === false) {
+      this.powerColour = 'white';}
 };
