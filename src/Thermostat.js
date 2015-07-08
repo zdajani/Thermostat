@@ -21,6 +21,10 @@ Thermostat.prototype.powerSavingOn = function () {
   if (this.temp > 25) {this.temp = 25;}
 };
 
+Thermostat.prototype.powerSavingToggle = function (first_argument) {
+  // body...
+};
+
 Thermostat.prototype.raise = function() {
   if (this.temp < this.maxtemp ) {this.temp++;}
   this.selectColour();
