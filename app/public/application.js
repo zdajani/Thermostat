@@ -7,22 +7,26 @@ function currentTemp() {
 var thermostat = new Thermostat();
 currentTemp();
 
-$('#raiseTemp').on("click", function(){
+var city = 'London';
+
+weatherApp();
+
+$('#raiseTemp').click(function(){
   thermostat.raise();
   currentTemp();
 });
 
-$('#lowerTemp').on("click", function(){
+$('#lowerTemp').click(function(){
   thermostat.lower();
   currentTemp();
 });
 
-$('#resetButton').on("click", function(){
+$('#resetButton').click(function(){
   thermostat.resetButton();
   currentTemp();
 });
 
-$('#powerSavingToggle').on("click", function(){
+$('#powerSavingToggle').click(function(){
   thermostat.powerSavingToggle();
   thermostat.powerSavingColour();
   currentTemp();
@@ -30,8 +34,16 @@ $('#powerSavingToggle').on("click", function(){
   if (this.value === 'Power Saving Off') { return this.value = 'Power Saving On';}
 });
 
-$.getJSON('http://api.openweathermap.org/data/2.5/find?q=London&units=metric',
- {},
- function (response) {
-   console.log(response.list[0].main.temp);
- });
+function weatherApp(){
+  ($.getJSON('http://api.openweathermap.org/data/2.5/find?q=' + city + '&units=metric',
+   function (response) {
+     $('#locationTemp').html(response.list[0].main.temp);
+     $('#cityWeather').html(response.list[0].name);
+   }));
+}
+
+
+$('#citySubmit').click(function() {
+  city = $('#cityForm').val();
+  weatherApp();
+});
