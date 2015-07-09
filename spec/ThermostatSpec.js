@@ -99,7 +99,6 @@ describe('Thermostat', function() {
       expect(thermostat.colour).toEqual('yellow');
     });
 
-
   });
 
 });
