@@ -1,11 +1,13 @@
 <html>
   <head>
-    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <h1>Thermostat</h1>
 
-    <input id='cityForm' type='text'>
+
+
+    <input id='cityForm' type='text'><br>
     <input id='citySubmit' type='submit' value='Submit'>
 
     <font size ="7"><div id="temp"></div></font>
@@ -19,8 +21,9 @@
     <button id="resetButton" type="button">&#8634</button></p>
 
 
-    The Weather in <span id='cityWeather'></span>:<div id="locationTemp"></div>
+    The Weather in <span id='cityWeather'></span>:<div id='locationTemp'></div>
 
+    The Weather in <span id='currentCity'></span>:<div id='currentTemp'></div>
 
   </body>
   <script src="./node_modules/jquery/dist/jquery.js"></script>

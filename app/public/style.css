@@ -1,0 +1,20 @@
+.golden {
+  color: goldenrod;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+
+body {
+
+  /*background-image: url("https://www.petfinder.com/wp-content/uploads/2012/11/99233806-bringing-home-new-cat-632x475.jpg");*/
+  text-align: center;
+  border: 2px solid black;
+
+}
